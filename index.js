@@ -103,7 +103,7 @@ client.on('message', async (message) => {
   try {
     const accessToken = await getAccessToken();
 
-    const webhookResponse = await fetch('/*Ganti dengan link webhook kamu */', {
+    const webhookResponse = await fetch('https://hook.eu2.make.com/gfed8nj28t30zv40pqt8rrf0b1926snk', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
