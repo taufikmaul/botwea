@@ -19,7 +19,7 @@ cloudinary.config({
 });
 
 if (!privateKey) {
-  throw new Error('Firebase private key is missing');
+  console.log('Firebase private key is missing');
 }
 
 // Service Account untuk Firebase JWT
