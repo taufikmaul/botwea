@@ -9,7 +9,6 @@ import jwt from 'jsonwebtoken';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const privateKey = process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n');
 
 // Konfigurasi Cloudinary
 cloudinary.config({
@@ -18,13 +17,9 @@ cloudinary.config({
   api_secret: '55zzgbg0jphoZ_ScIqKIvU_3osk',
 });
 
-if (!privateKey) {
-  console.log('Firebase private key is missing');
-}
-
 // Service Account untuk Firebase JWT
 const serviceAccount = {
-  private_key: privateKey,
+  private_key: (process.env.FIREBASE_PRIVATE_KEY || '').replace(/\\n/g, '\n'),
   client_email: 'firebase-adminsdk-fbsvc@weaproject-ac574.iam.gserviceaccount.com',
   project_id: 'weaproject-ac574',
 };
