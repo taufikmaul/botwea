@@ -17,6 +17,10 @@ cloudinary.config({
   api_secret: '55zzgbg0jphoZ_ScIqKIvU_3osk',
 });
 
+if (!process.env.FIREBASE_PRIVATE_KEY) {
+  console.log('FIREBASE_PRIVATE_KEY environment variable is not defined');
+}
+
 // Service Account untuk Firebase JWT
 const serviceAccount = {
   private_key: (process.env.FIREBASE_PRIVATE_KEY || '').replace(/\\n/g, '\n'),
